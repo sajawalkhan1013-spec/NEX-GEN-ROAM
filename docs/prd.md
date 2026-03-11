@@ -6,7 +6,7 @@
 esim-website
 
 ### 1.2 Application Description
-A modern animated Travel eSIM website that allows users to browse and purchase eSIM data packages for global travel across 100+ countries. The platform offers country-specific, regional, and global eSIM plans with instant activation.
+A modern animated Travel eSIM website that allows users to browse and purchase eSIM data packages for global travel across 195+ countries. The platform offers country-specific, regional, and global eSIM plans with instant activation.
 
 ## 2. Core Features
 
@@ -17,7 +17,7 @@ A modern animated Travel eSIM website that allows users to browse and purchase e
 
 ### 2.2 Home Page (index.html)
 - Hero section with title: Global Travel eSIM
-- Subtitle: Instant Data in 100+ Countries
+- Subtitle: Instant Data in 195+ Countries
 - Three action buttons:
   - View Countries
   - Region Packages
@@ -25,23 +25,18 @@ A modern animated Travel eSIM website that allows users to browse and purchase e
 - Animated background effects
 
 ### 2.3 Countries Listing Page (countries.html)
-- Grid layout displaying country cards
+- Grid layout displaying country cards for all 195+ countries
 - Each card contains:
   - Country flag
   - Country famous picture
   - Country name
   - View Details button
-- Featured countries: Turkey, France, Thailand, Malaysia
 - Card hover animations with blue neon glow
 
 ### 2.4 Country Detail Pages
-Separate pages for each country:
-- turkey.html
-- france.html
-- thailand.html
-- malaysia.html
+Separate detail pages for all 195+ countries, each following the same design structure.
 
-Each page includes:
+Each country detail page includes:
 - Country title and flag display
 - Three package options:
   - 5GB – 7 Days – Price
@@ -50,7 +45,7 @@ Each page includes:
 - Each package card features:
   - Add to Cart button
   - Order via WhatsApp button
-- WhatsApp order link format: https://wa.me/923017480703?text=I want to buy Turkey eSIM 10GB please let me know whats info are you want from my side
+- WhatsApp order link format: https://wa.me/923017480703?text=I want to buy [Country Name] eSIM [Package Size] please let me know whats info are you want from my side
 
 ### 2.5 Region Packages Page (region.html)
 Region-based eSIM packages:
@@ -80,6 +75,7 @@ Global eSIM plans:
 - Responsive grid layout
 - Fast loading optimization
 - Mobile and desktop compatibility
+- Consistent design across all 195+ country detail pages
 
 ### 3.3 Interactive Elements
 - Card hover animations
@@ -99,10 +95,12 @@ esim-website
 ├── global.html
 │
 ├── country
+│   ├── [195+ country HTML files with same design structure]
 │   ├── turkey.html
 │   ├── france.html
 │   ├── thailand.html
-│   └── malaysia.html
+│   ├── malaysia.html
+│   └── ...
 │
 ├── css
 │   └── style.css
@@ -111,10 +109,12 @@ esim-website
 │   └── script.js
 │
 └── images
+    ├── [195+ country images]
     ├── turkey.png
     ├── france.png
     ├── thailand.png
-    └── malaysia.png
+    ├── malaysia.png
+    └── ...
 ```
 
 ### 4.2 JavaScript Functionality
@@ -128,13 +128,16 @@ esim-website
 - Responsive design breakpoints
 - Animation keyframes
 - Hover state transitions
+- Reusable card design for all country detail pages
 
 ## 5. Image Assets
 
 ### 5.1 Country Images
+Images required for all 195+ countries, including:
 - turkey.png
 - france.png
 - thailand.png
 - malaysia.png
+- [Additional 191+ country images]
 
 These images will be used for country cards and detail pages.
