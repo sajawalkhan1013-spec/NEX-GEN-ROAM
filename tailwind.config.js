@@ -60,6 +60,13 @@ export default {
                     DEFAULT: 'hsl(var(--card))',
                     foreground: 'hsl(var(--card-foreground))'
                 },
+                gold: {
+                    DEFAULT: '#FFD700',
+                    foreground: '#000000',
+                },
+                neon: {
+                    blue: '#00F3FF',
+                },
                 education: {
                     blue: 'hsl(var(--education-blue))',
                     green: 'hsl(var(--education-green))'
