@@ -2,7 +2,8 @@ import React from "react";
 import { GLOBAL_PLANS } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
-import { Check, Globe, MessageCircle, ShoppingCart, Star, Zap } from "lucide-react";
+import { Check, Globe, MessageCircle, ShoppingCart, Star, Zap, ShieldCheck, Sparkles, Trophy } from "lucide-react";
+import { motion } from "motion/react";
 
 const Global = () => {
   const { addToCart } = useCart();
@@ -12,80 +13,201 @@ const Global = () => {
     window.open(`https://wa.me/923017480703?text=${encodeURIComponent(text)}`, "_blank");
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8 }
+    }
+  };
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
-      <div className="flex flex-col items-center mb-16 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">Global <span className="text-gold">eSIM</span> Plans</h1>
-        <p className="text-xl text-gray-400 max-w-2xl">One eSIM for the entire world. Unlimited roaming, zero boundaries. Stay connected in 100+ countries with a single plan.</p>
+    <div className="max-w-7xl mx-auto px-4 py-24">
+      <div className="flex flex-col items-center mb-32 text-center">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="w-24 h-24 rounded-[2rem] bg-gold/10 flex items-center justify-center mb-10 border border-gold/20 shadow-[0_0_30px_rgba(255,215,0,0.2)]"
+        >
+          <Trophy className="h-12 w-12 text-gold" />
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl md:text-9xl font-black mb-8 tracking-tighter leading-none"
+        >
+          Global <span className="text-gradient-gold drop-shadow-[0_0_30px_rgba(255,215,0,0.3)]">eSIM</span> <br />
+          Plans
+        </motion.h1>
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-2xl text-gray-500 max-w-3xl mb-12 font-medium leading-relaxed"
+        >
+          One eSIM for the entire world. Unlimited roaming, zero boundaries. Stay connected in 100+ countries with a single plan.
+        </motion.p>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="flex flex-wrap justify-center gap-4"
+        >
+          {["100+ Countries", "Unlimited Roaming", "Tier-1 Speed", "24/7 VIP Support"].map((perk, i) => (
+            <div key={i} className="flex items-center gap-2 px-6 py-2 rounded-full glass border-gold/20 text-gold text-xs font-black uppercase tracking-[0.2em] shadow-xl">
+               <Sparkles className="h-4 w-4" />
+               {perk}
+            </div>
+          ))}
+        </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-40"
+      >
         {GLOBAL_PLANS.map((pkg, idx) => (
-          <div key={pkg.id} className={`relative p-10 rounded-[3rem] transition-all duration-700 hover:gold-glow hover:-translate-y-4 group flex flex-col items-center text-center ${idx === 1 ? 'bg-gradient-to-br from-gold/30 via-black to-gold/30 border-2 border-gold scale-110 shadow-2xl shadow-gold/20 z-10' : 'bg-white/5 border border-white/10 opacity-80 hover:opacity-100'}`}>
+          <motion.div 
+            key={pkg.id} 
+            variants={cardVariants}
+            className={`relative p-12 rounded-[4rem] transition-all duration-1000 hover:-translate-y-8 group flex flex-col items-center text-center overflow-hidden h-full min-h-[700px] ${idx === 1 ? 'bg-gradient-to-br from-gold/20 via-black to-gold/20 border-2 border-gold scale-110 shadow-2xl shadow-gold/20 z-10' : 'glass border-white/10 opacity-80 hover:opacity-100 hover:border-white/20'}`}
+          >
+            {/* Background animated elements */}
+            <div className={`absolute -top-20 -right-20 w-64 h-64 blur-[100px] -z-10 transition-transform duration-1000 group-hover:scale-150 ${idx === 1 ? 'bg-gold/30' : 'bg-white/5'}`} />
+            <div className={`absolute -bottom-20 -left-20 w-64 h-64 blur-[100px] -z-10 transition-transform duration-1000 group-hover:scale-150 ${idx === 1 ? 'bg-gold/20' : 'bg-white/5'}`} />
             
             {idx === 1 && (
-                <div className="absolute top-0 -translate-y-1/2 bg-gold text-black px-8 py-2 rounded-full text-sm font-black tracking-widest uppercase flex items-center gap-2">
-                    <Star className="h-4 w-4 fill-black" /> BEST VALUE <Star className="h-4 w-4 fill-black" />
-                </div>
+                <motion.div 
+                  animate={{ scale: [1, 1.05, 1], rotate: [-2, 2, -2] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-0 -translate-y-1/2 bg-gold text-black px-12 py-3 rounded-full text-sm font-black tracking-[0.3em] uppercase flex items-center gap-3 shadow-2xl shadow-gold/40"
+                >
+                    <Star className="h-5 w-5 fill-black" /> BEST VALUE <Star className="h-5 w-5 fill-black" />
+                </motion.div>
             )}
             
-            <div className={`w-20 h-20 rounded-[2rem] flex items-center justify-center mb-8 ${idx === 1 ? 'bg-gold/20' : 'bg-white/10'}`}>
-                <Zap className={`h-10 w-10 ${idx === 1 ? 'text-gold' : 'text-white'}`} />
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
+              className={`w-28 h-28 rounded-[2.5rem] flex items-center justify-center mb-12 ${idx === 1 ? 'bg-gold/20 scale-110 shadow-[0_0_40px_rgba(255,215,0,0.2)]' : 'bg-white/10'}`}
+            >
+                <Zap className={`h-14 w-14 ${idx === 1 ? 'text-gold' : 'text-white'}`} />
+            </motion.div>
+
+            <h3 className="text-4xl font-black mb-2 text-white tracking-tighter leading-none">{pkg.name}</h3>
+            <p className="text-gray-500 font-bold mb-12 tracking-widest uppercase text-[10px]">{pkg.duration}</p>
+            
+            <div className="flex items-baseline gap-2 mb-16">
+                <span className={`text-7xl font-black transition-colors duration-500 tracking-tighter ${idx === 1 ? 'text-gold' : 'text-white group-hover:text-gold'}`}>{pkg.price}</span>
+            </div>
+            
+            <div className="space-y-6 mb-16 w-full text-left">
+              {[
+                `${pkg.data} High-speed Data`,
+                "Global Coverage (100+ Countries)",
+                "Elite 5G/LTE Performance",
+                `Valid for ${pkg.duration}`,
+                "Instant Global Activation",
+                "VIP Concierge Support"
+              ].map((text, i) => (
+                <div key={i} className="flex items-center gap-5 text-gray-500 group-hover:text-gray-400 transition-colors">
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${idx === 1 ? 'bg-gold text-black shadow-gold/20 shadow-lg' : 'bg-gold/20 text-gold'}`}>
+                    <Check className="h-4 w-4" />
+                  </div>
+                  <span className="font-bold text-sm tracking-tight">{text}</span>
+                </div>
+              ))}
             </div>
 
-            <h3 className="text-3xl font-bold mb-2 text-white">{pkg.name}</h3>
-            <p className="text-gray-400 font-medium mb-10">{pkg.duration}</p>
-            
-            <div className="flex items-baseline gap-2 mb-10">
-                <span className={`text-6xl font-black ${idx === 1 ? 'text-gold' : 'text-white'}`}>{pkg.price}</span>
-            </div>
-            
-            <ul className="space-y-5 mb-12 w-full text-left">
-              <li className="flex items-center gap-3 text-base text-gray-300">
-                <Check className="h-5 w-5 text-gold flex-shrink-0" /> {pkg.data} High-speed Data
-              </li>
-              <li className="flex items-center gap-3 text-base text-gray-300">
-                <Check className="h-5 w-5 text-gold flex-shrink-0" /> Global Coverage (100+ Countries)
-              </li>
-              <li className="flex items-center gap-3 text-base text-gray-300">
-                <Check className="h-5 w-5 text-gold flex-shrink-0" /> Reliable 4G/LTE Networks
-              </li>
-              <li className="flex items-center gap-3 text-base text-gray-300">
-                <Check className="h-5 w-5 text-gold flex-shrink-0" /> Valid for {pkg.duration}
-              </li>
-              <li className="flex items-center gap-3 text-base text-gray-300">
-                <Check className="h-5 w-5 text-gold flex-shrink-0" /> Instant Setup & Activation
-              </li>
-            </ul>
-
-            <div className="mt-auto space-y-4 w-full">
+            <div className="mt-auto space-y-4 w-full relative z-10">
                 <Button 
                     onClick={() => addToCart(pkg)}
-                    className={`w-full h-14 rounded-2xl text-lg font-black transition-all ${idx === 1 ? 'bg-gold text-black hover:bg-gold/80' : 'bg-white/10 text-white hover:bg-gold hover:text-black'} gap-2`}
+                    className={`w-full h-18 rounded-[2rem] text-xl font-black transition-all duration-500 shadow-2xl active:scale-95 group overflow-hidden relative ${idx === 1 ? 'bg-gold text-black hover:bg-gold/80 hover:shadow-gold/40' : 'bg-white text-black hover:bg-gold hover:shadow-gold/40'}`}
                 >
-                    <ShoppingCart className="h-6 w-6" />
-                    Add to Cart
+                    <motion.div className="absolute inset-0 bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12" />
+                    <ShoppingCart className="h-7 w-7 relative z-10" />
+                    <span className="relative z-10">Select Plan</span>
                 </Button>
                 <Button 
                     onClick={() => handleWhatsAppOrder(pkg)}
-                    className="w-full h-14 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-500 hover:bg-green-500 hover:text-white gap-2 transition-all font-bold"
+                    variant="ghost"
+                    className="w-full h-14 rounded-[2rem] text-gray-500 hover:text-green-500 hover:bg-green-500/10 gap-3 transition-all font-black text-sm group"
                 >
-                    <MessageCircle className="h-6 w-6" />
-                    Order via WhatsApp
+                    <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                    Inquiry via WhatsApp
                 </Button>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="mt-24 p-12 rounded-[3rem] bg-white/5 border border-white/10 text-center relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-          <Globe className="h-32 w-32 text-gold/10 absolute -top-10 -right-10 rotate-12" />
-          <div className="relative z-10">
-            <h2 className="text-3xl font-bold mb-4">Why choose Global Plans?</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">Global plans are perfect for travelers visiting multiple continents in a single trip. No need to buy separate eSIMs for each country or region. One plan, one eSIM, infinite possibilities.</p>
+      {/* Global Comparison / Trust Info */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="p-16 md:p-24 glass rounded-[5rem] border-white/5 relative overflow-hidden group"
+      >
+          <div className="absolute -top-20 -right-20 w-80 h-80 bg-gold/10 blur-[100px] -z-10 animate-pulse" />
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon-blue/10 blur-[100px] -z-10 animate-pulse" />
+          
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+             <div className="relative z-10">
+                <div className="w-16 h-16 bg-gold/20 rounded-3xl flex items-center justify-center mb-10 border border-gold/30">
+                   <ShieldCheck className="h-8 w-8 text-gold" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter leading-none">The ultimate <br />travel freedom.</h2>
+                <p className="text-xl text-gray-500 mb-10 leading-relaxed font-medium">Global plans are engineered for the extreme traveler. One single configuration, zero changes needed as you cross oceans and time zones.</p>
+                <div className="flex gap-10">
+                   <div className="space-y-2">
+                      <p className="text-white font-black text-3xl">100+</p>
+                      <p className="text-gray-600 font-bold uppercase tracking-widest text-[10px]">Territories Covered</p>
+                   </div>
+                   <div className="w-px h-12 bg-white/10" />
+                   <div className="space-y-2">
+                      <p className="text-white font-black text-3xl">∞ Plan</p>
+                      <p className="text-gray-600 font-bold uppercase tracking-widest text-[10px]">Zero Border Barriers</p>
+                   </div>
+                </div>
+             </div>
+             <div className="relative">
+                <div className="aspect-video glass rounded-[3.5rem] overflow-hidden relative shadow-2xl">
+                   <img 
+                     src="https://miaoda-site-img.s3cdn.medo.dev/images/KLing_3138b9af-83d8-4da4-9191-6d88642499dc.jpg" 
+                     className="w-full h-full object-cover opacity-40 transition-transform duration-1000 hover:scale-110" 
+                     alt="Global City"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                      <motion.div 
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+                        transition={{ duration: 4, repeat: Infinity }}
+                        className="w-40 h-40 rounded-full border border-gold/50 flex items-center justify-center"
+                      >
+                         <Globe className="h-16 w-16 text-gold" />
+                      </motion.div>
+                   </div>
+                </div>
+             </div>
           </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

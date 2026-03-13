@@ -83,6 +83,46 @@ All colors MUST be HSL.
   .gold-glow {
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
+  .gold-glow-hover:hover {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.3);
+    border-color: #FFD700;
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/5;
+  }
+  .glass-gold {
+    @apply bg-gold/10 backdrop-blur-xl border border-gold/20;
+  }
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold via-yellow-400 to-yellow-600 bg-clip-text text-transparent;
+  }
+  .nav-link-underline {
+    position: relative;
+  }
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #FFD700;
+    transition: width 0.3s ease;
+  }
+  .nav-link-underline:hover::after {
+    width: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased overflow-x-hidden;
 }
 
 @layer base {
