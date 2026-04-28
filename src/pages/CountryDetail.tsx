@@ -115,7 +115,7 @@ const CountryDetail = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: idx * 0.1 }}
-            className={`relative p-12 rounded-[3.5rem] bg-white/5 border border-white/5 transition-all duration-500 hover:border-gold hover:gold-glow-hover hover:-translate-y-6 group flex flex-col items-center text-center overflow-hidden ${idx === 1 ? 'border-gold/30 shadow-2xl shadow-gold/10 scale-105 z-10 bg-gradient-to-br from-gold/10 to-transparent' : ''}`}
+            className={`relative p-6 rounded-[3.5rem] bg-white/5 border border-white/5 transition-all duration-500 hover:border-gold hover:gold-glow-hover hover:-translate-y-6 group flex flex-col items-center text-center overflow-hidden ${idx === 1 ? 'border-gold/30 shadow-2xl shadow-gold/10 scale-105 z-10 bg-gradient-to-br from-gold/10 to-transparent' : ''}`}
           >
             {/* Background elements for cards */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 blur-[50px] -z-10 transition-transform duration-500 group-hover:scale-150" />
@@ -131,16 +131,16 @@ const CountryDetail = () => {
                 </motion.div>
             )}
             
-            <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center mb-10 transition-all duration-500 ${idx === 1 ? 'bg-gold/20 scale-110' : 'bg-white/5 group-hover:bg-gold/10 group-hover:scale-110'}`}>
+            <div className={`w-24 h-24 rounded-[2rem] flex items-center justify-center mb-4 transition-all duration-500 ${idx === 1 ? 'bg-gold/20 scale-110' : 'bg-white/5 group-hover:bg-gold/10 group-hover:scale-110'}`}>
                 <Zap className={`h-12 w-12 ${idx === 1 ? 'text-gold' : 'text-gray-400 group-hover:text-gold transition-colors duration-500'}`} />
             </div>
 
             <h3 className="text-4xl font-black mb-2 tracking-tighter leading-none">{pkg.data}</h3>
             <p className="text-gray-500 font-bold mb-10 tracking-widest uppercase text-[10px]">{pkg.duration}</p>
             
-            <div className="text-6xl font-black text-white mb-12 group-hover:text-gold transition-colors duration-500 tracking-tighter">{pkg.price}</div>
+            <div className="text-4xl font-black text-white mb-6 group-hover:text-gold transition-colors duration-500 tracking-tighter">{pkg.price}</div>
             
-            <div className="space-y-6 mb-12 w-full text-left">
+            <div className="space-y-3 mb-6 w-full text-left">
               {[
                 "Instant Activation",
                 "High-speed 5G Data",
@@ -160,7 +160,7 @@ const CountryDetail = () => {
             <div className="mt-auto space-y-4 w-full relative z-10">
                 <Button 
                     onClick={() => addToCart(pkg)}
-                    className="w-full h-16 rounded-[1.5rem] bg-white text-black hover:bg-gold hover:text-black gap-3 transition-all duration-300 font-black text-lg hover:shadow-[0_10px_30px_rgba(255,215,0,0.4)] active:scale-95 group overflow-hidden"
+                    className="w-full h-12 rounded-[1.5rem] bg-white text-black hover:bg-gold hover:text-black gap-3 transition-all duration-300 font-black text-lg hover:shadow-[0_10px_30px_rgba(255,215,0,0.4)] active:scale-95 group overflow-hidden"
                 >
                     <motion.div className="absolute inset-0 bg-gold/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12" />
                     <ShoppingCart className="h-6 w-6 relative z-10" />
@@ -169,7 +169,7 @@ const CountryDetail = () => {
                 <Button 
                     onClick={() => handleWhatsAppOrder(pkg)}
                     variant="ghost"
-                    className="w-full h-14 rounded-[1.5rem] text-gray-500 hover:text-green-500 hover:bg-green-500/10 gap-2 transition-all font-bold group"
+                    className="w-full h-10 rounded-[1.5rem] text-gray-500 hover:text-green-500 hover:bg-green-500/10 gap-2 transition-all font-bold group"
                 >
                     <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
                     Order via WhatsApp

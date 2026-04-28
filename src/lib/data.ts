@@ -1,12 +1,421 @@
 import { Country, Region, eSIMPackage } from "@/types";
 
-const generatePackages = (countryName: string, countryId: string): eSIMPackage[] => [
-  { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB", duration: "7 Days", price: "$15", countryName },
-  { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "15 Days", price: "$25", countryName },
-  { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "30 Days", price: "$40", countryName },
-  { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "Unlimited", duration: "15 Days", price: "$55", countryName },
-];
-
+const generatePackages = (countryName: string, countryId: string): eSIMPackage[] => {
+  if (countryName === "Turkey" || countryId === "tr") {
+    return [
+      { id: `${countryId}-5 gb`, name: `${countryName} eSIM 5GB`, data: "5 GB", duration: "Valid upto 30 Days", price: "$7.50", countryName }, 
+      { id: `${countryId}-10 gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$13.50", countryName },
+      { id: `${countryId}-25 gb`, name: `${countryName} eSIM 25GB`, data: "25 GB", duration: "Valid upto 30 Days", price: "$23.50", countryName },
+      { id: `${countryId}-50 gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$36.55", countryName },
+      { id: `${countryId}-200 gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$66.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "UNLIMITED / 3GB PER DAY", duration: "Valid upto 05 Days", price: "$16.50", countryName },
+    ];
+  }
+  if (countryName === "France" || countryId === "fr") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5 GB", duration: "Valid upto 10 Days", price: "$9.00", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 15 Days", price: "$12.50", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$20.50", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$28.50", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$41.55", countryName },
+      { id: `${countryId}-100gb`, name: `${countryName} eSIM 100GB`, data: "100 GB", duration: "Valid upto 30 Days", price: "$66.99", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$76.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "7 DAY UNLIMITED", duration: "Valid upto 07 Days 3GB PER DAY! HIGH SPEED 1Mbps", price: "$16.50", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "20 GB UNLIMITED (CALLS). PHONE NO +33 (FRANCE)", duration: "Valid upto 15 Days", price: "$35.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "60 GB UNLIMITED (CALLS). PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$53.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "120 GB UNLIMITED (CALLS). PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$78.99", countryName },
+    ];
+  }
+  if (countryName === "Thailand" || countryId === "th") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5 GB", duration: "Valid upto 10 Days", price: "$9.00", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 15 Days", price: "$12.50", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$20.50", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$28.50", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$41.55", countryName },
+      { id: `${countryId}-100gb`, name: `${countryName} eSIM 100GB`, data: "100 GB", duration: "Valid upto 30 Days", price: "$66.99", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$76.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "7 DAY UNLIMITED", duration: "Valid upto 07 Days 3GB PER DAY! HIGH SPEED 1Mbps", price: "$16.50", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "20 GB UNLIMITED (CALLS). PHONE NO +33 (FRANCE)", duration: "Valid upto 15 Days", price: "$35.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "60 GB UNLIMITED (CALLS). PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$53.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "120 GB UNLIMITED (CALLS). PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$78.99", countryName },
+    ];47
+  }
+    if (countryName === "Malaysia" || countryId === "my") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5 GB", duration: "Valid upto 30 Days", price: "$7.35", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$10.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$21.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$24.55", countryName },
+      ];
+  }
+  if (countryName === "Japan" || countryId === "jp") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5 GB", duration: "Valid upto 30 Days", price: "$7.35", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$10.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-25gb`, name: `${countryName} eSIM 25GB`, data: "2 GB", duration: "Valid upto 30 Days", price: "$19.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$26.35", countryName },
+      { id: `${countryId}-35gb`, name: `${countryName} eSIM 35GB`, data: "35 GB", duration: "Valid upto 30 Days", price: "$29.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$32.35", countryName },
+      ];
+  }
+  if (countryName === "United Kingdom" || countryId === "gb") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5 GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999 GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "USA" || countryId === "US") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5 GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "3 DAY UNLIMITED", duration: "Valid upto 03 Days 3GB PER DAY! HIGH SPEED 1Mbps", price: "$11.50", countryName },
+      { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "5 DAY UNLIMITED", duration: "Valid upto 05 Days 3GB PER DAY! HIGH SPEED 1Mbps", price: "$13.50", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$15.99", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$19.99", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "USA & UK 20 GB", duration: "Valid upto 30 Days", price: "$22.99", countryName },
+      { id: `${countryId}-25gb`, name: `${countryName} eSIM 25GB`, data: "25 GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-35gb`, name: `${countryName} eSIM 35GB`, data: "35 GB US CA UK AU NZ", duration: "Valid upto 365 Days", price: "$48.35", countryName },
+      { id: `${countryId}-40gb`, name: `${countryName} eSIM 40GB`, data: "40 GB EUROPE & USA", duration: "Valid upto 365 Days", price: "$45.35", countryName },
+      { id: `${countryId}-40gb`, name: `${countryName} eSIM 40GB`, data: "40 GB EUROPE & USA", duration: "Valid upto 365 Days", price: "$45.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$43.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$46.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB EUROPE & USA", duration: "Valid upto 60 Days", price: "$54", countryName },
+      { id: `${countryId}-100gb`, name: `${countryName} eSIM 100GB`, data: "100 GB", duration: "Valid upto 30 Days", price: "$75.35", countryName },
+      ];
+  }
+  if (countryName === "Italy" || countryId === "it") {
+    return [
+      { id: `${countryId}-12gb`, name: `${countryName} eSIM 12GB`, data: "12 GB", duration: "Valid upto 30 Days", price: "$10.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999 GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Spain" || countryId === "es") {
+    return [
+      { id: `${countryId}-7gb`, name: `${countryName} eSIM 7GB`, data: "7 GB SPAIN & PORTUGAL", duration: "Valid upto 30 Days", price: "$10.99", countryName },
+      { id: `${countryId}-12gb`, name: `${countryName} eSIM 12GB`, data: "12 GB", duration: "Valid upto 30 Days", price: "$10.99", countryName },
+      { id: `${countryId}-15gb`, name: `${countryName} eSIM 15GB`, data: "15 GB", duration: "Valid upto 30 Days", price: "$15.50", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$16.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$21.00", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB SPAIN & PORTUGAL", duration: "Valid upto 30 Days", price: "$27.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$29.00", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$39.30", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB SPAIN & PORTUGAL", duration: "Valid upto 30 Days", price: "$39.39", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB + UNLIMITED CALLS", duration: "Valid upto 30 Days", price: "$44.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS", duration: "Valid upto 30 Days", price: "$60.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$60.35", countryName },
+      ];
+  }
+  if (countryName === "Germany" || countryId === "de") {
+    return [
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-unlimited`, name: `${countryName} eSIM Unlimited`, data: "UNLIMITED", duration: "Valid upto 15 Days", price: "$45.99", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$15.50", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$21.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$29.00", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB + UNLIMITED CALLS", duration: "Valid upto 30 Days", price: "$44.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-100gb`, name: `${countryName} eSIM 100GB`, data: "100 GB", duration: "Valid upto 30 Days", price: "$49.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-40gb`, name: `${countryName} eSIM 40GB`, data: "40 GB", duration: "Valid upto 365 Days", price: "$45.35", countryName },
+      ];
+  }
+  if (countryName === "Switzerland" || countryId === "ch") {
+    return [
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$11.00", countryName },
+      { id: `${countryId}-unlimited`, name: `${countryName} eSIM Unlimited`, data: "UNLIMITED", duration: "Valid upto 15 Days", price: "$45.99", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$16.00", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$23.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$30.00", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-40gb`, name: `${countryName} eSIM 40GB`, data: "40 GB", duration: "Valid upto 365 Days", price: "$45.35", countryName },
+      ];
+  }
+  if (countryName === "Australia" || countryId === "au") {
+    return [
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10 GB", duration: "Valid upto 30 Days", price: "$11.00", countryName },
+      { id: `${countryId}-unlimited`, name: `${countryName} eSIM Unlimited`, data: "UNLIMITED", duration: "Valid upto 15 Days", price: "$45.99", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20 GB", duration: "Valid upto 30 Days", price: "$16.00", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30 GB", duration: "Valid upto 30 Days", price: "$23.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 30 Days", price: "$30.00", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60 GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200 GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-40gb`, name: `${countryName} eSIM 40GB`, data: "40 GB", duration: "Valid upto 365 Days", price: "$45.35", countryName },
+      ];
+  }
+  if (countryName === "UAE" || countryId === "ae") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Egypt" || countryId === "eg") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Brazil" || countryId === "br") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Greece" || countryId === "gr") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "South Korea" || countryId === "kr") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Singapore" || countryId === "sg") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Indonesia" || countryId === "id") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Vietnam" || countryId === "vn") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "India" || countryId === "in") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Italy" || countryId === "it") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Mexico" || countryId === "mx") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Italy" || countryId === "it") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "Canada" || countryId === "ca") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  if (countryName === "South Africa" || countryId === "za") {
+    return [
+      { id: `${countryId}-5gb`, name: `${countryName} eSIM 5GB`, data: "5GB + 100 UK CALL MIN", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 30 Days", price: "$9.99", countryName },
+      { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB + 200 UK CALL MIN", duration: "Valid upto 30 Days", price: "$18.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$15.35", countryName },
+      { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB + 300 CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-30gb`, name: `${countryName} eSIM 30GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$24.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "30GB", duration: "Valid upto 30 Days", price: "$37.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 60 Days", price: "$44.35", countryName },
+      { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB + 450 UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-60gb`, name: `${countryName} eSIM 60GB`, data: "60GB + UNLIMITED UK CALL MIN", duration: "Valid upto 30 Days", price: "$28.35", countryName },
+      { id: `${countryId}-120 gb`, name: `${countryName} eSIM 120 GB`, data: "120 GB + UNLIMITED CALLS MIN. PHONE NO +33 (FRANCE)", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-200gb`, name: `${countryName} eSIM 200GB`, data: "200GB", duration: "Valid upto 30 Days", price: "$59.35", countryName },
+      { id: `${countryId}-999gb`, name: `${countryName} eSIM 999GB`, data: "999GB", duration: "Valid upto 30 Days", price: "$34.35", countryName },
+      ];
+  }
+  return [
+    { id: `${countryId}-5 gb`, name: `${countryName} eSIM 5GB`, data: "5GB", duration: "Valid upto 7 Days", price: "$15", countryName },
+    { id: `${countryId}-10gb`, name: `${countryName} eSIM 10GB`, data: "10GB", duration: "Valid upto 15 Days", price: "$25", countryName },
+    { id: `${countryId}-20gb`, name: `${countryName} eSIM 20GB`, data: "20GB", duration: "Valid upto 30 Days", price: "$40", countryName },
+    { id: `${countryId}-50gb`, name: `${countryName} eSIM 50GB`, data: "50GB", duration: "Valid upto 30 Days", price: "$36.55", countryName },
+    { id: `${countryId}-unl`, name: `${countryName} eSIM Unlimited`, data: "Unlimited", duration: "Valid upto 45 Days", price: "$59.99", countryName },
+  ];
+};
 const IMAGES = {
   Turkey: "https://miaoda-site-img.s3cdn.medo.dev/images/KLing_12e40ee0-b787-4540-8879-3e109f849c4d.jpg",
   France: "https://miaoda-site-img.s3cdn.medo.dev/images/KLing_e81501cd-751f-479f-9471-4ac9381016a5.jpg",
@@ -253,16 +662,18 @@ export const REGIONS: Region[] = [
     id: "europe",
     name: "Europe",
     packages: [
-      { id: "eu-10gb", name: "Europe eSIM 10GB", data: "10GB", duration: "30 Days", price: "$35", category: "Europe" },
-      { id: "eu-20gb", name: "Europe eSIM 20GB", data: "20GB", duration: "30 Days", price: "$60", category: "Europe" },
+      { id: "eu-unlgb", name: "EUROPE 60GB", data: "60GB", duration: "60 Days", price: "$54.99", category: "Europe" },
+      { id: "eu-30gb", name: "EUROPE & USA 30GB", data: "30GB", duration: "30 Days", price: "$29.99", category: "Europe" },
+      { id: "eu-60gb", name: "EUROPE & USA 60GB", data: "60GB", duration: "60 Days", price: "$54.99", category: "Europe" },
+      { id: "eu-60gb", name: "EUROPE & USA 120GB + UNLIMITED CALLS", data: "60GB", duration: "60 Days", price: "$64.99", category: "Europe" },
     ],
   },
   {
     id: "asia",
     name: "Asia",
     packages: [
-      { id: "as-10gb", name: "Asia eSIM 10GB", data: "10GB", duration: "30 Days", price: "$30", category: "Asia" },
-      { id: "as-20gb", name: "Asia eSIM 20GB", data: "20GB", duration: "30 Days", price: "$55", category: "Asia" },
+      { id: "as-10gb", name: "Europe Asia & USA eSIM 20GB", data: "20GB", duration: "30 Days", price: "$39.99", category: "Asia" },
+      { id: "as-20gb", name: "Europe Asia & USA eSIM 40GB", data: "40GB", duration: "365 Days", price: "$69.99", category: "Asia" },
     ],
   },
   {

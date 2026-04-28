@@ -88,27 +88,27 @@ const Regions = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+              className="flex overflow-x-auto pb-8 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 no-scrollbar"
             >
               {region.packages.map((pkg, pidx) => (
                 <motion.div 
                   key={pkg.id} 
                   variants={itemVariants}
-                  className="p-12 rounded-[3.5rem] glass hover:border-neon-blue/30 transition-all duration-700 hover:neon-glow-hover hover:-translate-y-6 flex flex-col items-start group shadow-2xl relative overflow-hidden"
+                  className="p-6 rounded-[3.5rem] glass hover:border-neon-blue/30 transition-all duration-700 hover:neon-glow-hover hover:-translate-y-6 flex flex-col items-start group shadow-2xl relative overflow-hidden"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-neon-blue/5 blur-[50px] -z-10 transition-transform duration-700 group-hover:scale-150" />
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-neon-blue/5 blur-[50px] -z-10 transition-transform duration-700 group-hover:scale-150" />
                   
                   <div className="w-12 h-12 rounded-2xl bg-neon-blue/10 flex items-center justify-center mb-10 group-hover:scale-110 group-hover:neon-glow transition-all duration-500">
                     <Zap className="h-6 w-6 text-neon-blue" />
                   </div>
 
-                  <h3 className="text-3xl font-black mb-4 tracking-tighter leading-none">{pkg.name}</h3>
-                  <div className="flex items-baseline gap-2 mb-10">
-                    <span className="text-5xl font-black text-white group-hover:text-neon-blue transition-colors duration-500 tracking-tighter">{pkg.price}</span>
+                  <h3 className="text-2xl font-black mb-4 tracking-tighter leading-none">{pkg.name}</h3>
+                  <div className="flex items-baseline gap-2 mb-6">
+                    <span className="text-4xl font-black text-white group-hover:text-neon-blue transition-colors duration-500 tracking-tighter">{pkg.price}</span>
                     <span className="text-gray-600 font-bold uppercase tracking-widest text-[10px]">/ {pkg.duration}</span>
                   </div>
                   
-                  <div className="space-y-5 mb-12 w-full">
+                  <div className="space-y-5 mb-6 w-full">
                     {[
                       `${pkg.data} High-speed Data`,
                       `Coverage in ${region.name} Region`,
@@ -116,7 +116,7 @@ const Regions = () => {
                       "Instant activation (QR Code)",
                       "Local speed optimization"
                     ].map((text, i) => (
-                      <div key={i} className="flex items-center gap-4 text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+                      <div key={i} className="flex items-center gap-2 text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
                         <div className="w-5 h-5 rounded-full bg-neon-blue/20 flex items-center justify-center flex-shrink-0 group-hover:neon-glow transition-all">
                           <Check className="h-3 w-3 text-neon-blue" />
                         </div>
@@ -128,7 +128,7 @@ const Regions = () => {
                   <div className="mt-auto space-y-4 w-full relative z-10">
                     <Button 
                       onClick={() => addToCart(pkg)}
-                      className="w-full h-16 rounded-[1.5rem] bg-neon-blue text-black hover:bg-neon-blue/90 gap-3 transition-all duration-300 font-black text-lg shadow-[0_10px_30px_rgba(0,243,255,0.3)] hover:scale-[1.02] active:scale-95 group overflow-hidden"
+                      className="w-full h-12 rounded-[1.5rem] bg-neon-blue text-black hover:bg-neon-blue/90 gap-3 transition-all duration-300 font-black text-lg shadow-[0_10px_30px_rgba(0,243,255,0.3)] hover:scale-[1.02] active:scale-95 group overflow-hidden"
                     >
                       <motion.div className="absolute inset-0 bg-white/30 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-12" />
                       <ShoppingCart className="h-6 w-6 relative z-10" />
