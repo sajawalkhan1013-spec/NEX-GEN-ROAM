@@ -33,7 +33,7 @@ const Global = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-24">
+    <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="flex flex-col items-center mb-32 text-center">
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
