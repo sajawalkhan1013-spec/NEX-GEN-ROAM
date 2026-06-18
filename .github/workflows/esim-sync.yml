@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-node: '20'
+          node-version: '24' # <- Yahan mistake theek kar di hai aur Node 24 kar diya hai
 
       - name: Install Project Dependencies
         run: |
@@ -27,10 +27,9 @@ jobs:
       - name: Run eSIM Automation Script
         env:
           GOOGLE_SHEET_API_KEY: ${{ secrets.GOOGLE_SHEET_API_KEY }}
-          # Agar koi sensitive API key ya password hai to wo yahan configure hoga
         run: |
           node scripts/sync-esim-rates.js
-          # (Yahan aap ke us script ka path aayega jo data fetch aur update karti hai)
+          # Note: Agar aap ki automation script kisi aur folder ya file name se hai, to us ka sahi path yahan likhein.
 
       - name: Commit and Push Updated Rates
         run: |
