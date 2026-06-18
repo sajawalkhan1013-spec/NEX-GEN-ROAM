@@ -2,8 +2,8 @@ name: Automated eSIM Rates Sync
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Roz raat ke 12 baje script khud chalegi
-  workflow_dispatch: # Taake aap GitHub dashboard se manually bhi 'Run' kar sakein
+    - cron: '0 0 * * *' # Roz raat ke 12 baje khud chale gi
+  workflow_dispatch: # Isse aap manually bhi jab chahein run kar sakte hain
 
 jobs:
   update-rates:
