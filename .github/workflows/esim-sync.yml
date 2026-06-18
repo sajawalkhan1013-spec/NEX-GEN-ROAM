@@ -1,0 +1,41 @@
+name: Automated eSIM Rates Sync
+
+on:
+  schedule:
+    # Yeh har roz raat 12 baje auto-run hoga (UTC time ke mutabiq)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Is se aap GitHub par "Run workflow" ka button click kar ke manually bhi run kar sakte hain
+
+jobs:
+  sync-rates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-node: '20'
+
+      - name: Install Project Dependencies
+        run: |
+          npm install
+
+      - name: Run eSIM Automation Script
+        env:
+          GOOGLE_SHEET_API_KEY: ${{ secrets.GOOGLE_SHEET_API_KEY }}
+          # Agar koi sensitive API key ya password hai to wo yahan configure hoga
+        run: |
+          node scripts/sync-esim-rates.js
+          # (Yahan aap ke us script ka path aayega jo data fetch aur update karti hai)
+
+      - name: Commit and Push Updated Rates
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git diff-index --quiet HEAD || git commit -m "chore: Auto-updated eSIM rates from Google Sheet"
+          git push
