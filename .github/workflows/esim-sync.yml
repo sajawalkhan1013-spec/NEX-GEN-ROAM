@@ -19,10 +19,9 @@ jobs:
           node-version: '24'
 
       - name: Run eSIM Automation Script
-        env:
-          GOOGLE_SHEET_API_KEY: ${{ secrets.GOOGLE_SHEET_API_KEY }}
         run: |
-          node scripts/sync-esim-rates.js
+          # Yeh command aap ke pure project mein jahan bhi .js file hogi, usay dhoond kar khud chala degi
+          find . -name "*.js" ! -path "*/node_modules/*" -exec node {} \;
 
       - name: Commit and Push Updated Rates
         run: |
