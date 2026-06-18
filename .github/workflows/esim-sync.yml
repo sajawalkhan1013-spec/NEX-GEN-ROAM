@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: '24'
 
-      # Hum ne yahan se npm install hata diya hai agar dependencies nahi chahiye thin
-
-       Sirf script run karne ke liye:
       - name: Run eSIM Automation Script
         env:
           GOOGLE_SHEET_API_KEY: ${{ secrets.GOOGLE_SHEET_API_KEY }}
